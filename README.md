@@ -14,7 +14,7 @@ Projeto de um conversor de moedas desenvolvido com HTML, CSS e JavaScript puro.
 - JavaScript (Vanilla JS)
 
 ## 📷 Preview
-[Preview do projeto](./assets/preview.png)
+![Preview do projeto](./assets/preview.png)
 
 ## 🚀 Como usar
 1. Digite um valor em reais
