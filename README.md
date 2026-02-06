@@ -25,4 +25,4 @@ Projeto de um conversor de moedas desenvolvido com HTML, CSS e JavaScript puro.
 Marcus Vinícius
 
 ## 🔗 Acesse o projeto
-https://github.com/marvinmarvin2089-source/marvinmarvin2089-source
+https://github.com/marvinmarvin2089-source/DevClub-conversor
