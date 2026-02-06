@@ -22,40 +22,242 @@
             Converter <b>de</b>
             <select id="from-currency">
                 <option value="BRL">R$ Real Brasileiro</option>
+                <option value="USD">US$ Dólar Americano</option>
+                <option value="EUR">€ Euro</option>
+                <option value="GBP">£ Libra Esterlina</option>
+                <option value="JPY">¥ Iene Japonês</option>
+                <option value="AUD">A$ Dólar Australiano</option>
+                <option value="CAD">C$ Dólar Canadense</option>
+                <option value="CNY">¥ Yuan Chinês</option>
+                <option value="MXN">M$ Peso Mexicano</option>
+                <option value="ZAR">R$ Rand Sul-Africano</option>
+                <option value="KRW">₩ Won Sul-Coreano</option>
+                <option value="KPW">₩ Won Norte-Coreano</option>
+                <option value="THB">฿ Baht Tailandês</option>
+                <option value="VND">₫ Dong VietNamita</option>
+                 <option value="KES">ksh Shilling Queniano</option>
+                   
             </select>
         </label>
 
         <label>
             Converter <b>para</b>
-            <select id="to-currency">
+            <select class="to-currency">
                 <option value="USD">US$ Dólar Americano</option>
                 <option value="EUR">€ Euro</option>
+                <option value="BRL">R$ Real Brasileiro</option>
+                <option value="GBP">£ Libra Esterlina</option>
+                <option value="JPY">¥ Iene Japonês</option>
+                <option value="AUD">A$ Dólar Australiano</option>
+                <option value="CAD">C$ Dólar Canadense</option>
+                <option value="CNY">¥ Yuan Chinês</option>
+                <option value="MXN">M$ Peso Mexicano</option>
+                <option value="ZAR">R$ Rand Sul-Africano</option>
+                <option value="KRW">₩ Won Sul-Coreano</option>
+                <option value="KPW">₩ Won Norte-Coreano</option>
+                <option value="THB">฿ Baht Tailandês</option>
+                <option value="VND">₫ Dong VietNamita</option>
+                <option value="KES">ksh Shilling Queniano</option>
+
             </select>
         </label>
 
         <label>
             Valor
-            <input id="amount" type="number" placeholder="0.00">
+            <input class="amount" type="number" placeholder="0.00">
         </label>
+        
 
         <button class="convert-button">Converter</button>
 
         <section>
-            <div class="currency-box">
+            <div class="currency-box" data-currency="BRL">
                 <img class="moeda-reais" src="./assets/reais.png" alt="logo-real">
                 <p class="currency">Real</p>
-                <p class="currency-value" id="from-value">R$ 0,00</p>
+                <p class="currency-value from-value">R$ 0,00</p>
+            </div>
+
+            <div class="currency-box" data-currency="USD">
+                <img class="moeda-dolares" src="./assets/dola.png" alt="logo-americano">
+                <p class="currency">Dólar</p>
+                <p class="currency-value from-value">US$ 0,00</p>
+            </div>
+
+            <div class="currency-box" data-currency="EUR">
+                <img class="moeda-euros" src="./assets/euro.jpg" alt="logo-euro">
+                <p class="currency">euro</p>
+                <p class="currency-value from-value">€ 0,00</p>
+            </div>
+
+            <div class="currency-box" data-currency="GBP">
+                <img class="moeda-libra" src="./assets/Reino unido libra.png" alt="logo-libra">
+                <p class="currency">Libra</p>
+                <p class="currency-value from-value">£ 0,00</p>
+            </div>
+
+            <div class="currency-box" data-currency="JPY">
+                <img class="moeda-Iene-Japonês" src="./assets/Japão.png" alt="logo-Iene-Japonês">
+                <p class="currency">¥</p>
+                <p class="currency-value from-value">¥ 0,00</p>
+            </div>
+
+
+            <div class="currency-box" data-currency="AUD">
+                <img class="moeda-australiana" src="./assets/Autralia.png" alt="logo-australiana">
+                <p class="currency">Dólar-australiano</p>
+                <p class="currency-value from-value">A$ 0,00</p>
+            </div>
+
+            <div class="currency-box" data-currency="CAD">
+                <img class="moeda-canadense" src="./assets/Canada.png" alt="logo-Canadense">
+                <p class="currency">Dólar-canadense</p>
+                <p class="currency-value from-value">C$ 0,00</p>
+            </div>
+
+            <div class="currency-box" data-currency="CNY">
+                <img class="moeda-chinesa" src="./assets/China.png" alt="logo-chinês">
+                <p class="currency">Yuan</p>
+                <p class="currency-value from-value">¥ 0,00</p>
+            </div>
+
+            <div class="currency-box" data-currency="MXN">
+                <img class="moeda-mexicana" src="./assets/méxico.png" alt="logo-mexicano">
+                <p class="currency">Peso Mexicano</p>
+                <p class="currency-value from-value">M$ 0,00</p>
+            </div>
+
+            <div class="currency-box" data-currency="ZAR">
+                <img class="moeda-sul-africana" src="./assets/Africa do Sul.png" alt="logo-sul-africana">
+                <p class="currency">Rand</p>
+                <p class="currency-value from-value">R$ 0,00</p>
+            </div>
+
+            <div class="currency-box" data-currency="KRW">
+                <img class="moeda-sul-coreano" src="./assets/Coreia do Sul.png" alt="logo-sul-coreano">
+                <p class="currency">Won</p>
+                <p class="currency-value from-value">₩ 0,00</p>
+            </div>
+
+            <div class="currency-box"  data-currency="KPW">
+                <img class="moeda-norte-coreano" src="./assets/Coreia do Norte.png" alt="logo-norte-coreano">
+                <p class="currency">Won</p>
+                <p class="currency-value from-value">₩ 0,00</p>
+            </div>
+
+            <div class="currency-box" data-currency="THB">
+                <img class="moeda-tailandesa" src="./assets/Tailandia.png" alt="logo-tailandesa">
+                <p class="currency">Baht</p>
+                <p class="currency-value from-value">฿ 0,00</p>
+            </div>
+
+            <div class="currency-box" data-currency="VND">
+                <img class="moeda-vietnamita" src="./assets/Vietnã.png" alt="logo-vietnamita">
+                <p class="currency">Dong</p>
+                <p class="currency-value from-value">₫ 0,00</p>
+            </div>
+
+            <div class="currency-box" data-currency="KES">
+                <img class="moeda-keniano" src="./assets/Kenya.png" alt="logo-keniano">
+                <p class="currency">Shilling</p>
+                <p class="currency-value from-value">ksh 0,00</p>
             </div>
 
             <div class="arrow-img">
                 <img class="logo-seta" src="./assets/seta.jpg" alt="seta">
             </div>
 
-            <div class="currency-box">
+            <div class="currency-box" data-currency="USD">
                 <img class="moeda-dolares" src="./assets/dola.png" alt="logo-dolar">
-                <p class="currency" id="to-name">Dólar</p>
-                <p class="currency-value" id="to-value">US$ 0,00</p>
+                <p class="currency to-name">Dólar</p>
+                <p class="currency-value to-value">US$ 0,00</p>
             </div>
+
+            <div class="currency-box" data-currency="BRL">
+                <img class="moeda-reais" src="./assets/reais.png" alt="logo-reais">
+                <p class="currency to-name">Real</p>
+                <p class="currency-value to-value">R$ 0,00</p>
+            </div>
+
+            <div class="currency-box" data-currency="EUR">
+                <img class="moeda-euros" src="./assets/euro.jpg" alt="logo-euros">
+                <p class="currency to-name">Euro</p>
+                <p class="currency-value to-value">€ 0,00</p>
+            </div>
+
+            <div class="currency-box" data-currency="GBP">
+                <img class="moeda-libra" src="./assets/Reino unido libra.png" alt="logo-lira">
+                <p class="currency to-name">Libra</p>
+                <p class="currency-value to-value">£ 0,00</p>
+            </div>
+
+            <div class="currency-box" data-currency="JPY">
+                <img class="moeda-Iene-Japonês" src="./assets/Japão.png" alt="logo-japonesa">
+                <p class="currency to-name">Yen</p>
+                <p class="currency-value to-value">¥ 0,00</p>
+            </div>
+
+            <div class="currency-box" data-currency="AUD">
+                <img class="moeda-australiana" src="./assets/Autralia.png" alt="logo-australiana">
+                <p class="currency to-name">Dólar-australiano</p>
+                <p class="currency-value to-value">A$ 0,00</p>
+            </div>
+
+            <div class="currency-box" data-currency="CAD">
+                <img class="moeda-canadense" src="./assets/Canada.png" alt="logo-canadense">
+                <p class="currency to-name">Dólar-canadense</p>
+                <p class="currency-value to-value">C$ 0,00</p>
+            </div>
+
+            <div class="currency-box" data-currency="CNY">
+                <img class="moeda-chinesa" src="./assets/China.png" alt="logo-chinês">
+                <p class="currency to-name">Yuan</p>
+                <p class="currency-value to-value">¥ 0,00</p>
+            </div>
+
+            <div class="currency-box" data-currency="MXN">
+                <img class="moeda-mexicana" src="./assets/méxico.png" alt="logo-mexicano">
+                <p class="currency to-name">Peso Mexicano</p>
+                <p class="currency-value to-value">M$ 0,00</p>
+            </div>
+
+            <div class="currency-box" data-currency="ZAR">
+                <img class="moeda-sul-africana" src="./assets/Africa do Sul.png" alt="logo-sul-africana">
+                <p class="currency to-name">Rand</p>
+                <p class="currency-value to-value">R$ 0,00</p>
+            </div>
+
+            <div class="currency-box" data-currency="KRW">
+                <img class="moeda-sul-coreano" src="./assets/Coreia do Sul.png" alt="logo-sul-coreano">
+                <p class="currency to-name">Won</p>
+                <p class="currency-value to-value">₩ 0,00</p>
+            </div>
+
+            <div class="currency-box" data-currency="KPW">
+                <img class="moeda-norte-coreano" src="./assets/Coreia do Norte.png" alt="logo-norte-coreano">
+                <p class="currency to-name">Won</p>
+                <p class="currency-value to-value">₩ 0,00</p>
+            </div>
+
+            <div class="currency-box" data-currency="THB">
+                <img class="moeda-tailandesa" src="./assets/Tailandia.png" alt="logo-tailandesa">
+                <p class="currency to-name">Baht</p>
+                <p class="currency-value to-value">฿ 0,00</p>
+            </div>
+
+            <div class="currency-box" data-currency="VND">
+                <img class="moeda-vietnamita" src="./assets/Vietnã.png" alt="logo-vietnamita">
+                <p class="currency to-name">Dong</p>
+                <p class="currency-value to-value">₫ 0,00</p>
+            </div>
+
+            <div class="currency-box" data-currency="KES">
+                <img class="moeda-keniano" src="./assets/Kenya.png" alt="logo-keniano">
+                <p class="currency to-name">Shilling</p>
+                <p class="currency-value to-value">ksh 0,00</p>
+            </div>
+
+            
+
         </section>
     </main>
 </body>

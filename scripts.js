@@ -1,53 +1,122 @@
-const convertButton = document.querySelector('.convert-button');
-const inputAmount = document.querySelector('#amount');
-const fromValue = document.querySelector('#from-value');
-const toValue = document.querySelector('#to-value');
-const toCurrency = document.querySelector('#to-currency');
-const toName = document.querySelector('#to-name');
-const toImage = document.querySelector('.moeda-dolares');
+const convertButton = document.querySelector(".convert-button")
+const fromSelect = document.querySelector("#from-currency")
+const toSelect = document.querySelector(".to-currency")
+const amountInput = document.querySelector(".amount")
+
+const fromBoxes = document.querySelectorAll(".from-value")
+const toBoxes = document.querySelectorAll(".to-value")
+const currencyBoxes = document.querySelectorAll(".currency-box")
 
 // taxas fixas (exemplo)
-const dolar = 5.0;
-const euro = 5.4;
-
-function convertValues() {
-    const value = Number(inputAmount.value);
-
-    if (!value || value <= 0) {
-        fromValue.innerHTML = 'R$ 0,00';
-        toValue.innerHTML = 'US$ 0,00';
-        return;
-    }
-
-    // valor em reais
-    fromValue.innerHTML = value.toLocaleString('pt-BR', {
-        style: 'currency',
-        currency: 'BRL'
-    });
-
-    // dólar
-    if (toCurrency.value === 'USD') {
-        const converted = value / dolar;
-        toName.innerHTML = 'Dólar';
-        toImage.src = './assets/dola.png';
-        toImage.alt = 'Bandeira dos Estados Unidos';
-        toValue.innerHTML = converted.toLocaleString('pt-BR', {
-            style: 'currency',
-            currency: 'USD'
-        });
-    }
-
-    // euro
-    if (toCurrency.value === 'EUR') {
-        const converted = value / euro;
-        toName.innerHTML = 'Euro';
-        toImage.src = './assets/euro.jpg';
-        toImage.alt = 'Bandeira da União Europeia';
-        toValue.innerHTML = converted.toLocaleString('pt-BR', {
-            style: 'currency',
-            currency: 'EUR'
-        });
-    }
+// depois você pode trocar por API
+const rates = {
+  BRL: 1,
+  USD: 5.0,
+  EUR: 5.4,
+  GBP: 6.3,
+  JPY: 0.034,
+  AUD: 3.3,
+  CAD: 3.7,
+  CNY: 0.7,
+  MXN: 0.29,
+  ZAR: 0.27,
+  KRW: 0.0038,
+  KPW: 0.0038,
+  THB: 0.14,
+  VND: 0.00021,
+  KES: 0.036
 }
 
-convertButton.addEventListener('click', convertValues);
+// símbolos
+const symbols = {
+  BRL: "R$",
+  USD: "US$",
+  EUR: "€",
+  GBP: "£",
+  JPY: "¥",
+  AUD: "A$",
+  CAD: "C$",
+  CNY: "¥",
+  MXN: "M$",
+  ZAR: "R$",
+  KRW: "₩",
+  KPW: "₩",
+  THB: "฿",
+  VND: "₫",
+  KES: "ksh"
+}
+
+function hideAllFrom() {
+  fromBoxes.forEach(el => {
+    el.closest(".currency-box").style.display = "none"
+  })
+}
+
+function hideAllTo() {
+  toBoxes.forEach(el => {
+    el.closest(".currency-box").style.display = "none"
+  })
+}
+
+function convert() {
+  const amount = Number(amountInput.value)
+  if (!amount) return
+
+  const fromCurrency = fromSelect.value
+  const toCurrency = toSelect.value
+
+  // esconder todas
+  hideAllFrom()
+  hideAllTo()
+
+  // mostrar moeda FROM selecionada
+  document
+    .querySelector(`.currency-box[data-currency="${fromCurrency}"] .from-value`)
+    .closest(".currency-box")
+    .style.display = "flex"
+
+  // mostrar moeda TO selecionada
+  document
+    .querySelector(`.currency-box[data-currency="${toCurrency}"] .to-value`)
+    .closest(".currency-box")
+    .style.display = "flex"
+
+  // conversão
+  const valueInBRL = amount * rates[fromCurrency]
+  const convertedValue = valueInBRL / rates[toCurrency]
+
+  // atualizar valores
+  document.querySelector(
+    `.currency-box[data-currency="${fromCurrency}"] .from-value`
+  ).innerText = `${symbols[fromCurrency]} ${amount.toFixed(2)}`
+
+  document.querySelector(
+    `.currency-box[data-currency="${toCurrency}"] .to-value`
+  ).innerText = `${symbols[toCurrency]} ${convertedValue.toFixed(2)}`
+}
+
+convertButton.addEventListener("click", convert)
+
+function showInitialCurrencies() {
+  hideAllFrom()
+  hideAllTo()
+
+  const fromCurrency = fromSelect.value
+  const toCurrency = toSelect.value
+
+  // mostrar FROM inicial
+  document
+    .querySelector(`.currency-box[data-currency="${fromCurrency}"] .from-value`)
+    .closest(".currency-box")
+    .style.display = "flex"
+
+  // mostrar TO inicial
+  document
+    .querySelector(`.currency-box[data-currency="${toCurrency}"] .to-value`)
+    .closest(".currency-box")
+    .style.display = "flex"
+}
+
+// quando a página carrega
+showInitialCurrencies()
+
