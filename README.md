@@ -2,11 +2,11 @@
 
 Projeto de um conversor de moedas desenvolvido com HTML, CSS e JavaScript puro.
 
-## 📌 Funcionalidades
-- Conversão de Real Brasileiro para Dólar e Euro
-- Interface simples e intuitiva
-- Layout responsivo
-- Código organizado e sem frameworks
+## 🧠 Funcionalidades
+- Conversão entre várias moedas
+- Troca dinâmica de bandeiras
+- Atualização automática dos valores
+- Interface responsiva
 
 ## 🛠️ Tecnologias utilizadas
 - HTML5
@@ -23,3 +23,6 @@ Projeto de um conversor de moedas desenvolvido com HTML, CSS e JavaScript puro.
 
 ## 👨‍💻 Autor
 Marcus Vinícius
+
+## 🔗 Acesse o projeto
+https://github.com/marvinmarvin2089-source/marvinmarvin2089-source
